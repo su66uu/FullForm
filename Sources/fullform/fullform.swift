@@ -74,7 +74,7 @@ func normalizeLookupTerm(_ term: String) -> String {
 
 func formatLookupResult(term: String, entry: GlossaryEntry?) -> String {
     guard let entry else {
-        return "No entry found for \"\(term)\"."
+        return "No FullForm entry found for \"\(term)\"."
     }
 
     var lines = [
