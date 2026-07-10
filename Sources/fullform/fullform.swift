@@ -47,7 +47,11 @@ struct Fullform {
         let lookupKey = normalizeLookupTerm(term)
         let entry = lookupGlossaryEntry(for: term, in: glossary)
         let message = formatLookupResult(term: lookupKey, entry: entry)
-        print(message)
+        do {
+            try showDialog(message: message)
+        } catch {
+            print(message)
+        }
     }
 }
 
@@ -55,4 +59,25 @@ func loadGlossary(from path: String) throws -> Glossary {
     let url = URL(fileURLWithPath: path)
     let data = try Data(contentsOf: url)
     return try decodeGlossary(from: data)
+}
+
+func makeDialogScript(message: String) -> String {
+    let escapedMessage = message
+        .replacingOccurrences(of: "\\", with: "\\\\")
+        .replacingOccurrences(of: "\"", with: "\\\"")
+
+    return "display dialog \"\(escapedMessage)\" buttons {\"OK\"} default button \"OK\""
+}
+
+func showDialog(message: String) throws {
+    let process = Process()
+    process.executableURL = URL(fileURLWithPath: "/usr/bin/osascript")
+    process.arguments = ["-e", makeDialogScript(message: message)]
+
+    try process.run()
+    process.waitUntilExit()
+
+    if process.terminationStatus != 0 {
+        throw CocoaError(.executableLoad)
+    }
 }
