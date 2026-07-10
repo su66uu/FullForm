@@ -32,12 +32,7 @@ struct Fullform {
             glossary = try loadGlossary(from: defaultGlossaryPath())
         } catch CocoaError.fileReadNoSuchFile {
             let message = missingGlossaryMessage(path: defaultGlossaryPath())
-            do {
-                try showDialog(message: message)
-            } catch {
-                print(message)
-            }
-
+            presentMessage(message)
             Foundation.exit(1)
         } catch DecodingError.dataCorrupted {
             print("FullForm glossary JSON is invalid")
@@ -53,11 +48,7 @@ struct Fullform {
         let lookupKey = normalizeLookupTerm(term)
         let entry = lookupGlossaryEntry(for: term, in: glossary)
         let message = formatLookupResult(term: lookupKey, entry: entry)
-        do {
-            try showDialog(message: message)
-        } catch {
-            print(message)
-        }
+        presentMessage(message)
     }
 }
 
@@ -106,4 +97,12 @@ func missingGlossaryMessage(path: String) -> String {
     Expected location:
     \(path)
     """
+}
+
+func presentMessage(_ message: String) {
+    do {
+        try showDialog(message: message)
+    } catch {
+        print(message)
+    }
 }
