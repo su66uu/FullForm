@@ -31,9 +31,30 @@ struct Fullform {
             Foundation.exit(1)
         }
 
-        print("Looking up: \(term)")
+        let glossary: Glossary
+
+        do {
+            glossary = try loadGlossary(from: "Fixtures/fullform.json")
+        } catch CocoaError.fileReadNoSuchFile {
+            print("FullForm glossary file is missing.")
+            Foundation.exit(1)
+        } catch DecodingError.dataCorrupted {
+            print("FullForm glossary JSON is invalid")
+            Foundation.exit(1)
+        } catch DecodingError.keyNotFound {
+            print("FullForm glossary JSON is missing a required field.")
+            Foundation.exit(1)
+        } catch {
+            print("Could not load FullForm glossary: \(error)")
+            Foundation.exit(1)
+        }
+
+        let lookupKey = normalizeLookupTerm(term)
+        let message = formatLookupResult(term: lookupKey, entry: glossary[lookupKey])
+        print(message)
     }
 }
+
 typealias Glossary = [String: GlossaryEntry]
 
 func decodeGlossary(from data: Data) throws -> Glossary {
