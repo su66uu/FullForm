@@ -3,7 +3,7 @@
 import Foundation
 
 struct GlossaryEntry: Decodable {
-    let fullform: String
+    let fullForm: String
     let description: String?
     let example: String?
 }
@@ -48,7 +48,7 @@ func loadGlossary(from path: String) throws -> Glossary {
 
 func normalizeLookupTerm(_ term: String) -> String {
     let surroundingCharacters = CharacterSet.whitespacesAndNewlines.union(.punctuationCharacters)
-    return term.trimmingCharacters(in: surroundingCharacters)
+    return term.trimmingCharacters(in: surroundingCharacters).uppercased()
 }
 
 func formatLookupResult(term: String, entry: GlossaryEntry?) -> String {
