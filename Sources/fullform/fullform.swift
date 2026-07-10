@@ -29,7 +29,7 @@ struct Fullform {
         let glossary: Glossary
 
         do {
-            glossary = try loadGlossary(from: "Fixtures/fullform.json")
+            glossary = try loadGlossary(from: defaultGlossaryPath())
         } catch CocoaError.fileReadNoSuchFile {
             print("FullForm glossary file is missing.")
             Foundation.exit(1)
@@ -80,4 +80,15 @@ func showDialog(message: String) throws {
     if process.terminationStatus != 0 {
         throw CocoaError(.executableLoad)
     }
+}
+
+func defaultGlossaryPath() -> String {
+    let homeDirectory = FileManager.default.homeDirectoryForCurrentUser
+    let glossaryURL = homeDirectory
+        .appendingPathComponent("Library")
+        .appendingPathComponent("Application Support")
+        .appendingPathComponent("FullForm")
+        .appendingPathComponent("fullform.json")
+
+    return glossaryURL.path
 }
