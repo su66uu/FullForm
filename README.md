@@ -15,18 +15,15 @@ It is intentionally small: a Swift command-line tool, a JSON glossary, a macOS Q
 - [Prerequisites](#prerequisites)
 - [Build and Test](#build-and-test)
 - [Local Manual Install](#local-manual-install)
-- [Use the Quick Action](#use-the-quick-action)
 - [Glossary Format](#glossary-format)
 - [Build the Package](#build-the-package)
-- [Project Layout](#project-layout)
 - [Verification Checklist](#verification-checklist)
-- [Current Limitations](#current-limitations)
 
 ## Features
 
 - **Selected-text lookup** through a macOS Quick Action.
 - **Local glossary** stored as JSON under the user's Application Support directory.
-- **Exact normalized matching** for predictable MVP behavior.
+- **Exact normalized matching** for predictable behavior.
 - **macOS dialog output** using `osascript`, with stdout fallback if dialogs cannot be shown.
 - **Package build scripts** for staging and creating a `.pkg`.
 - **Overwrite-safe sample glossary install**: the package postinstall script only copies the sample glossary if the user does not already have one.
@@ -121,34 +118,6 @@ Expected behavior:
 > [!NOTE]
 > The CLI displays results using a macOS dialog. If the dialog cannot be shown, it prints the same message to stdout.
 
-## Use the Quick Action
-
-The repository includes an Automator-generated Quick Action template:
-
-```text
-Workflows/Look Up FullForm.workflow
-```
-
-For local manual testing, install it into your user Services folder:
-
-```bash
-mkdir -p "$HOME/Library/Services"
-cp -R "Workflows/Look Up FullForm.workflow" "$HOME/Library/Services/"
-```
-
-Then test it:
-
-1. Open TextEdit.
-2. Type `IRL`.
-3. Select the text.
-4. Run **Look Up FullForm** from the Services / Quick Actions menu.
-
-If you want a keyboard shortcut, assign one in macOS System Settings:
-
-```text
-Keyboard -> Keyboard Shortcuts -> Services
-```
-
 ## Glossary Format
 
 FullForm uses a JSON object keyed by normalized lookup term:
@@ -194,7 +163,7 @@ Examples:
 ```
 
 > [!IMPORTANT]
-> FullForm does not scan inside sentences in the MVP. If you select `Let's discuss IRL`, it looks for the full key `LET'S DISCUSS IRL`, not `IRL`.
+> FullForm does not scan inside sentences. If you select `Let's discuss IRL`, it looks for the full key `LET'S DISCUSS IRL`, not `IRL`.
 
 ## Build the Package
 
@@ -223,6 +192,8 @@ The package payload installs:
 /Library/Services/Look Up FullForm.workflow
 ```
 
+After installation, select text in any macOS app and run **Look Up FullForm** from the Services / Quick Actions menu.
+
 The postinstall script installs the sample glossary only when this file is missing:
 
 ```text
@@ -230,29 +201,10 @@ The postinstall script installs the sample glossary only when this file is missi
 ```
 
 > [!WARNING]
-> The package is currently unsigned. On another machine, macOS may warn before installation. Signing and notarization are not part of the current MVP.
+> The package is currently unsigned. On another machine, macOS may warn before installation. Signing and notarization are not implemented yet.
 
 > [!NOTE]
 > In some sandboxed development environments, `pkgbuild` may include `._*` AppleDouble metadata entries because of macOS extended attributes. Validate release packages from a normal Terminal session or a clean machine before distribution.
-
-## Project Layout
-
-```text
-Sources/
-  FullFormCore/              # glossary model, normalization, lookup, formatting
-  fullform/                  # CLI entry point, file loading, dialogs
-Tests/
-  FullFormCoreTests/         # unit tests for lookup behavior
-Resources/
-  fullform.json              # sample glossary
-Workflows/
-  Look Up FullForm.workflow  # Automator Quick Action template
-Scripts/
-  stage-package.sh           # stage installable assets under .build/stage
-  build-package.sh           # build .build/packages/FullForm.pkg
-Packaging/
-  scripts/postinstall        # overwrite-safe sample glossary installer
-```
 
 ## Verification Checklist
 
@@ -270,13 +222,3 @@ Manual checks:
 - `/usr/local/bin/fullform lookup XYZ` opens a not-found dialog.
 - **Look Up FullForm** works from selected text in TextEdit.
 - Reinstalling does not overwrite an existing `~/Library/Application Support/FullForm/fullform.json`.
-
-## Current Limitations
-
-- Exact lookup only.
-- No fuzzy search.
-- No scanning inside longer selected sentences.
-- No glossary editing UI.
-- No team sync or cloud storage.
-- No Slack API integration.
-- Package signing and notarization are not implemented yet.
