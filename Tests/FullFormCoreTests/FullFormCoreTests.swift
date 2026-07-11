@@ -153,4 +153,74 @@ final class FullFormCoreTests: XCTestCase {
 
         XCTAssertNil(lookupGlossaryEntry(for: "Let's discuss IRL", in: glossary))
     }
+
+    func testInstallSupportFilesCopiesWorkflowAndCreatesMissingGlossary() throws {
+        let root = try makeTemporaryDirectory()
+        defer { try? FileManager.default.removeItem(at: root) }
+
+        let workflowSourceURL = root.appendingPathComponent("Source.workflow")
+        let workflowContentsURL = workflowSourceURL.appendingPathComponent("Contents")
+        let sampleGlossaryURL = root.appendingPathComponent("fullform.json")
+        let servicesURL = root.appendingPathComponent("Services")
+        let appSupportURL = root.appendingPathComponent("Application Support/FullForm")
+
+        try FileManager.default.createDirectory(at: workflowContentsURL, withIntermediateDirectories: true)
+        try "workflow".write(to: workflowContentsURL.appendingPathComponent("document.wflow"), atomically: true, encoding: .utf8)
+        try #"{"IRL":{"fullForm":"In Real Life"}}"#.write(to: sampleGlossaryURL, atomically: true, encoding: .utf8)
+
+        let result = try installSupportFiles(
+            workflowSourceURL: workflowSourceURL,
+            sampleGlossarySourceURL: sampleGlossaryURL,
+            servicesDirectoryURL: servicesURL,
+            appSupportDirectoryURL: appSupportURL
+        )
+
+        XCTAssertTrue(result.installedWorkflow)
+        XCTAssertTrue(result.installedGlossary)
+        XCTAssertTrue(FileManager.default.fileExists(atPath: servicesURL.appendingPathComponent("Look Up FullForm.workflow/Contents/document.wflow").path))
+        XCTAssertTrue(FileManager.default.fileExists(atPath: appSupportURL.appendingPathComponent("fullform.json").path))
+    }
+
+    func testInstallSupportFilesUpdatesWorkflowWithoutOverwritingExistingGlossary() throws {
+        let root = try makeTemporaryDirectory()
+        defer { try? FileManager.default.removeItem(at: root) }
+
+        let workflowSourceURL = root.appendingPathComponent("Source.workflow")
+        let workflowContentsURL = workflowSourceURL.appendingPathComponent("Contents")
+        let sampleGlossaryURL = root.appendingPathComponent("fullform.json")
+        let servicesURL = root.appendingPathComponent("Services")
+        let installedWorkflowURL = servicesURL.appendingPathComponent("Look Up FullForm.workflow")
+        let appSupportURL = root.appendingPathComponent("Application Support/FullForm")
+        let existingGlossaryURL = appSupportURL.appendingPathComponent("fullform.json")
+
+        try FileManager.default.createDirectory(at: workflowContentsURL, withIntermediateDirectories: true)
+        try "new workflow".write(to: workflowContentsURL.appendingPathComponent("document.wflow"), atomically: true, encoding: .utf8)
+        try #"{"IRL":{"fullForm":"In Real Life"}}"#.write(to: sampleGlossaryURL, atomically: true, encoding: .utf8)
+
+        try FileManager.default.createDirectory(at: installedWorkflowURL, withIntermediateDirectories: true)
+        try "old workflow".write(to: installedWorkflowURL.appendingPathComponent("old.txt"), atomically: true, encoding: .utf8)
+        try FileManager.default.createDirectory(at: appSupportURL, withIntermediateDirectories: true)
+        try "custom glossary".write(to: existingGlossaryURL, atomically: true, encoding: .utf8)
+
+        let result = try installSupportFiles(
+            workflowSourceURL: workflowSourceURL,
+            sampleGlossarySourceURL: sampleGlossaryURL,
+            servicesDirectoryURL: servicesURL,
+            appSupportDirectoryURL: appSupportURL
+        )
+
+        XCTAssertTrue(result.installedWorkflow)
+        XCTAssertFalse(result.installedGlossary)
+        XCTAssertFalse(FileManager.default.fileExists(atPath: installedWorkflowURL.appendingPathComponent("old.txt").path))
+        XCTAssertEqual(try String(contentsOf: installedWorkflowURL.appendingPathComponent("Contents/document.wflow")), "new workflow")
+        XCTAssertEqual(try String(contentsOf: existingGlossaryURL), "custom glossary")
+    }
+
+    private func makeTemporaryDirectory() throws -> URL {
+        let url = FileManager.default.temporaryDirectory
+            .appendingPathComponent("fullform-tests")
+            .appendingPathComponent(UUID().uuidString)
+        try FileManager.default.createDirectory(at: url, withIntermediateDirectories: true)
+        return url
+    }
 }
