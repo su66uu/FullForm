@@ -17,7 +17,7 @@ class Fullform < Formula
   def caveats
     <<~EOS
       To install the macOS Quick Action and sample glossary, run:
-        fullform install-service
+        #{opt_bin}/fullform install-service
     EOS
   end
 

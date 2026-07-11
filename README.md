@@ -28,7 +28,7 @@ Install with Homebrew:
 brew tap su66uu/fullform https://github.com/su66uu/FullForm.git
 brew trust --formula su66uu/fullform/fullform
 brew install fullform
-fullform install-service
+$(brew --prefix fullform)/bin/fullform install-service
 ```
 
 This builds FullForm from source, installs the CLI, then installs the macOS Quick Action and sample glossary for your user account.
