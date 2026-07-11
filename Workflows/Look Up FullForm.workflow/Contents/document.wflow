@@ -60,7 +60,14 @@
 				<dict>
 					<key>COMMAND_STRING</key>
 					<string>selected_text="$(cat)"
-/usr/local/bin/fullform lookup "$selected_text"</string>
+
+if [ -x /opt/homebrew/bin/fullform ]; then
+  /opt/homebrew/bin/fullform lookup "$selected_text"
+elif [ -x /usr/local/bin/fullform ]; then
+  /usr/local/bin/fullform lookup "$selected_text"
+else
+  osascript -e 'display dialog "FullForm is not installed." buttons {"OK"} default button "OK"'
+fi</string>
 					<key>CheckedForUserDefaultShell</key>
 					<true/>
 					<key>inputMethod</key>
