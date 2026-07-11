@@ -10,6 +10,7 @@ It is intentionally small: a Swift command-line tool, a JSON glossary, a macOS Q
 
 ## Contents
 
+- [Download](#download)
 - [Features](#features)
 - [How It Works](#how-it-works)
 - [Prerequisites](#prerequisites)
@@ -18,6 +19,17 @@ It is intentionally small: a Swift command-line tool, a JSON glossary, a macOS Q
 - [Glossary Format](#glossary-format)
 - [Build the Package](#build-the-package)
 - [Verification Checklist](#verification-checklist)
+
+## Download
+
+Download the unsigned installer from the latest GitHub Release:
+
+[Download FullForm.pkg](https://github.com/su66uu/FullForm/releases/latest/download/FullForm.pkg)
+
+After installation, select text in any macOS app and run **Look Up FullForm** from the Services / Quick Actions menu.
+
+> [!WARNING]
+> This installer is currently unsigned. macOS may show a warning before installation.
 
 ## Features
 
