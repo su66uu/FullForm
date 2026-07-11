@@ -57,7 +57,7 @@ You can also download the unsigned installer from the latest GitHub Release:
 ```text
 Selected text in any macOS app
   -> Look Up FullForm Quick Action
-  -> /usr/local/bin/fullform lookup "<selected text>"
+  -> fullform lookup "<selected text>"
   -> ~/Library/Application Support/FullForm/fullform.json
   -> macOS dialog with the result
 ```
@@ -66,7 +66,14 @@ The Quick Action is intentionally thin. It only passes selected text to the CLI:
 
 ```bash
 selected_text="$(cat)"
-/usr/local/bin/fullform lookup "$selected_text"
+
+if [ -x /opt/homebrew/bin/fullform ]; then
+  /opt/homebrew/bin/fullform lookup "$selected_text"
+elif [ -x /usr/local/bin/fullform ]; then
+  /usr/local/bin/fullform lookup "$selected_text"
+else
+  osascript -e 'display dialog "FullForm is not installed." buttons {"OK"} default button "OK"'
+fi
 ```
 
 All lookup behavior lives in the Swift code and is covered by unit tests.
