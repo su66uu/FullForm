@@ -10,7 +10,7 @@ It is intentionally small: a Swift command-line tool, a JSON glossary, a macOS Q
 
 ## Contents
 
-- [Download](#download)
+- [Install](#install)
 - [Features](#features)
 - [How It Works](#how-it-works)
 - [Prerequisites](#prerequisites)
@@ -20,16 +20,28 @@ It is intentionally small: a Swift command-line tool, a JSON glossary, a macOS Q
 - [Build the Package](#build-the-package)
 - [Verification Checklist](#verification-checklist)
 
-## Download
+## Install
 
-Download the unsigned installer from the latest GitHub Release:
+Install with Homebrew:
 
-[Download FullForm.pkg](https://github.com/su66uu/FullForm/releases/latest/download/FullForm.pkg)
+```bash
+brew tap su66uu/fullform https://github.com/su66uu/FullForm.git
+brew install fullform
+fullform install-service
+```
+
+This builds FullForm from source, installs the CLI, then installs the macOS Quick Action and sample glossary for your user account.
 
 After installation, select text in any macOS app and run **Look Up FullForm** from the Services / Quick Actions menu.
 
+### Unsigned Package
+
+You can also download the unsigned installer from the latest GitHub Release:
+
+[Download FullForm.pkg](https://github.com/su66uu/FullForm/releases/latest/download/FullForm.pkg)
+
 > [!WARNING]
-> This installer is currently unsigned. macOS may show a warning before installation.
+> This installer is currently unsigned. macOS may block it with an "Apple could not verify" message. For test installs, choose **Done**, then open **System Settings -> Privacy & Security** and allow `FullForm.pkg` from there.
 
 ## Features
 
@@ -213,7 +225,7 @@ The postinstall script installs the sample glossary only when this file is missi
 ```
 
 > [!WARNING]
-> The package is currently unsigned. On another machine, macOS may warn before installation. Signing and notarization are not implemented yet.
+> The package is currently unsigned. On another machine, macOS may block installation until the user allows it in **System Settings -> Privacy & Security**. Signing and notarization are not implemented yet.
 
 > [!NOTE]
 > In some sandboxed development environments, `pkgbuild` may include `._*` AppleDouble metadata entries because of macOS extended attributes. Validate release packages from a normal Terminal session or a clean machine before distribution.
