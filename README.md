@@ -26,6 +26,7 @@ Install with Homebrew:
 
 ```bash
 brew tap su66uu/fullform https://github.com/su66uu/FullForm.git
+brew trust --formula su66uu/fullform/fullform
 brew install fullform
 fullform install-service
 ```
