@@ -34,6 +34,14 @@ This builds FullForm from source, installs the CLI, then installs the macOS Quic
 
 After installation, select text in any macOS app and run **Look Up FullForm** from the Services / Quick Actions menu.
 
+To merge newly bundled glossary entries into your local glossary:
+
+```bash
+$(brew --prefix fullform)/bin/fullform update-glossary
+```
+
+This adds missing bundled entries, preserves your existing entries, and creates a backup before writing changes.
+
 To remove the Quick Action:
 
 ```bash

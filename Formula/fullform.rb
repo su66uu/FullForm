@@ -19,6 +19,9 @@ class Fullform < Formula
       To install the macOS Quick Action and sample glossary, run:
         #{opt_bin}/fullform install-service
 
+      To merge newly bundled entries into your local glossary, run:
+        #{opt_bin}/fullform update-glossary
+
       To remove the Quick Action while keeping your glossary, run:
         #{opt_bin}/fullform uninstall-service
     EOS

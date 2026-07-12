@@ -1,6 +1,6 @@
 import Foundation
 
-public struct GlossaryEntry: Decodable {
+public struct GlossaryEntry: Codable {
     let fullForm: String
     let description: String?
     let example: String?
@@ -15,6 +15,11 @@ public struct SupportInstallResult {
 
 public struct SupportUninstallResult {
     public let removedWorkflow: Bool
+}
+
+public struct GlossaryUpdateResult {
+    public let glossary: Glossary
+    public let addedEntries: Int
 }
 
 public func normalizeLookupTerm(_ term: String) -> String {
@@ -50,9 +55,27 @@ public func decodeGlossary(from data: Data) throws -> Glossary {
     try JSONDecoder().decode(Glossary.self, from: data)
 }
 
+public func encodeGlossary(_ glossary: Glossary) throws -> Data {
+    let encoder = JSONEncoder()
+    encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+    return try encoder.encode(glossary)
+}
+
 public func lookupGlossaryEntry(for term: String, in glossary: Glossary) -> GlossaryEntry? {
     let lookupKey = normalizeLookupTerm(term)
     return glossary[lookupKey]
+}
+
+public func updateGlossary(existing: Glossary, bundled: Glossary) -> GlossaryUpdateResult {
+    var updatedGlossary = existing
+    var addedEntries = 0
+
+    for (key, entry) in bundled where updatedGlossary[key] == nil {
+        updatedGlossary[key] = entry
+        addedEntries += 1
+    }
+
+    return GlossaryUpdateResult(glossary: updatedGlossary, addedEntries: addedEntries)
 }
 
 public func installSupportFiles(

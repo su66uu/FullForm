@@ -246,6 +246,78 @@ final class FullFormCoreTests: XCTestCase {
         XCTAssertFalse(result.removedWorkflow)
     }
 
+    func testUpdateGlossaryAddsMissingBundledEntries() throws {
+        let existing = try decodeGlossary(from: XCTUnwrap("""
+        {
+          "IRL": {
+            "fullForm": "In Real Life"
+          }
+        }
+        """.data(using: .utf8)))
+        let bundled = try decodeGlossary(from: XCTUnwrap("""
+        {
+          "API": {
+            "fullForm": "Application Programming Interface"
+          },
+          "IRL": {
+            "fullForm": "In Real Life"
+          }
+        }
+        """.data(using: .utf8)))
+
+        let result = updateGlossary(existing: existing, bundled: bundled)
+
+        XCTAssertEqual(result.addedEntries, 1)
+        XCTAssertEqual(result.glossary.count, 2)
+        XCTAssertEqual(result.glossary["API"]?.fullForm, "Application Programming Interface")
+    }
+
+    func testUpdateGlossaryPreservesExistingUserEntries() throws {
+        let existing = try decodeGlossary(from: XCTUnwrap("""
+        {
+          "API": {
+            "fullForm": "Already Personalized",
+            "description": "User edited entry."
+          }
+        }
+        """.data(using: .utf8)))
+        let bundled = try decodeGlossary(from: XCTUnwrap("""
+        {
+          "API": {
+            "fullForm": "Application Programming Interface",
+            "description": "Bundled entry."
+          }
+        }
+        """.data(using: .utf8)))
+
+        let result = updateGlossary(existing: existing, bundled: bundled)
+
+        XCTAssertEqual(result.addedEntries, 0)
+        XCTAssertEqual(result.glossary["API"]?.fullForm, "Already Personalized")
+        XCTAssertEqual(result.glossary["API"]?.description, "User edited entry.")
+    }
+
+    func testEncodeGlossaryWritesSortedPrettyJSON() throws {
+        let glossary = try decodeGlossary(from: XCTUnwrap("""
+        {
+          "IRL": {
+            "fullForm": "In Real Life"
+          },
+          "API": {
+            "fullForm": "Application Programming Interface"
+          }
+        }
+        """.data(using: .utf8)))
+
+        let json = try String(data: encodeGlossary(glossary), encoding: .utf8)
+
+        XCTAssertTrue(try XCTUnwrap(json).contains(#""API""#))
+        XCTAssertLessThan(
+            try XCTUnwrap(json?.range(of: #""API""#)?.lowerBound),
+            try XCTUnwrap(json?.range(of: #""IRL""#)?.lowerBound)
+        )
+    }
+
     private func makeTemporaryDirectory() throws -> URL {
         let url = FileManager.default.temporaryDirectory
             .appendingPathComponent("fullform-tests")

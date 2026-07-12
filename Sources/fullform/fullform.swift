@@ -18,6 +18,11 @@ struct Fullform {
             return
         }
 
+        if arguments.count == 1, arguments[0] == "update-glossary" {
+            updateUserGlossary()
+            return
+        }
+
         guard arguments.count == 2, arguments[0] == "lookup" else {
             printUsage()
             Foundation.exit(1)
@@ -138,6 +143,7 @@ func printUsage() {
           fullform lookup <term>
           fullform install-service
           fullform uninstall-service
+          fullform update-glossary
         """
     )
 }
@@ -185,6 +191,59 @@ func uninstallService() {
         printServiceCleanupHelp(error: error)
         Foundation.exit(1)
     }
+}
+
+func updateUserGlossary() {
+    guard let sources = findSupportFileSources() else {
+        print("Could not find FullForm support files. Reinstall FullForm and try again.")
+        Foundation.exit(1)
+    }
+
+    let fileManager = FileManager.default
+    let glossaryURL = defaultAppSupportDirectoryURL().appendingPathComponent("fullform.json")
+
+    do {
+        let bundledGlossary = try loadGlossary(from: sources.sampleGlossaryURL.path)
+        let glossaryExists = fileManager.fileExists(atPath: glossaryURL.path)
+        let existingGlossary: Glossary
+
+        if glossaryExists {
+            existingGlossary = try loadGlossary(from: glossaryURL.path)
+        } else {
+            existingGlossary = [:]
+            try fileManager.createDirectory(at: defaultAppSupportDirectoryURL(), withIntermediateDirectories: true)
+        }
+
+        let result = updateGlossary(existing: existingGlossary, bundled: bundledGlossary)
+
+        guard result.addedEntries > 0 else {
+            print("Glossary already up to date.")
+            print("Glossary location: \(glossaryURL.path)")
+            return
+        }
+
+        if glossaryExists {
+            let backupURL = backupGlossaryURL(for: glossaryURL)
+            try fileManager.copyItem(at: glossaryURL, to: backupURL)
+            print("Backup created at \(backupURL.path).")
+        }
+
+        try encodeGlossary(result.glossary).write(to: glossaryURL, options: .atomic)
+        print("Added \(result.addedEntries) glossary entries.")
+        print("Glossary now has \(result.glossary.count) entries.")
+        print("Glossary location: \(glossaryURL.path)")
+    } catch {
+        print("Could not update FullForm glossary: \(error)")
+        Foundation.exit(1)
+    }
+}
+
+func backupGlossaryURL(for glossaryURL: URL, date: Date = Date()) -> URL {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyyMMdd-HHmmss"
+    let timestamp = formatter.string(from: date)
+    return glossaryURL.deletingLastPathComponent()
+        .appendingPathComponent("fullform.json.backup-\(timestamp)")
 }
 
 func refreshServicesMenu() {
