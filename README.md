@@ -35,15 +35,6 @@ This builds FullForm from source, installs the CLI, then installs the macOS Quic
 
 After installation, select text in any macOS app and run **Look Up FullForm** from the Services / Quick Actions menu.
 
-### Unsigned Package
-
-You can also download the unsigned installer from the latest GitHub Release:
-
-[Download FullForm.pkg](https://github.com/su66uu/FullForm/releases/latest/download/FullForm.pkg)
-
-> [!WARNING]
-> This installer is currently unsigned. macOS may block it with an "Apple could not verify" message. For test installs, choose **Done**, then open **System Settings -> Privacy & Security** and allow `FullForm.pkg` from there.
-
 ## Features
 
 - **Selected-text lookup** through a macOS Quick Action.
