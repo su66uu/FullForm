@@ -318,6 +318,21 @@ final class FullFormCoreTests: XCTestCase {
         )
     }
 
+    func testBundledGlossaryKeysAreNormalizedForLookup() throws {
+        let packageRootURL = URL(fileURLWithPath: #filePath)
+            .deletingLastPathComponent()
+            .deletingLastPathComponent()
+            .deletingLastPathComponent()
+        let glossaryURL = packageRootURL.appendingPathComponent("Resources/fullform.json")
+        let glossary = try decodeGlossary(from: Data(contentsOf: glossaryURL))
+
+        let mismatchedKeys = glossary.keys
+            .filter { $0 != normalizeLookupTerm($0) }
+            .sorted()
+
+        XCTAssertEqual(mismatchedKeys, [])
+    }
+
     private func makeTemporaryDirectory() throws -> URL {
         let url = FileManager.default.temporaryDirectory
             .appendingPathComponent("fullform-tests")

@@ -4,20 +4,50 @@
     "description": "A sign-in method that requires two forms of verification.",
     "example": "Enable 2FA before joining the production GitHub organization."
   },
+  "A/B": {
+    "fullForm": "A/B Test",
+    "description": "An experiment that compares two variants to measure which performs better.",
+    "example": "Run an A/B test before changing the signup page for everyone."
+  },
   "ACK": {
     "fullForm": "Acknowledged",
     "description": "Used to confirm that a message, request, or update has been received.",
     "example": "ACK, I will review the PR after standup."
+  },
+  "ACL": {
+    "fullForm": "Access Control List",
+    "description": "A list of permissions that controls who or what can access a resource.",
+    "example": "Update the ACL before giving the service access to the bucket."
+  },
+  "ADR": {
+    "fullForm": "Architecture Decision Record",
+    "description": "A short document that records an important technical decision and its context.",
+    "example": "Write an ADR for the database migration strategy."
+  },
+  "AI": {
+    "fullForm": "Artificial Intelligence",
+    "description": "Software techniques that perform tasks commonly associated with human intelligence.",
+    "example": "The team is evaluating AI-assisted support triage."
   },
   "API": {
     "fullForm": "Application Programming Interface",
     "description": "A contract that lets software systems communicate with each other.",
     "example": "The mobile app calls the payments API during checkout."
   },
+  "ARR": {
+    "fullForm": "Annual Recurring Revenue",
+    "description": "Recurring revenue normalized to a yearly value.",
+    "example": "Expansion ARR increased after the enterprise launch."
+  },
   "ASAP": {
     "fullForm": "As Soon As Possible",
     "description": "Used when something should be handled quickly.",
     "example": "Please share the incident timeline ASAP."
+  },
+  "AWS": {
+    "fullForm": "Amazon Web Services",
+    "description": "A cloud computing platform commonly used to host infrastructure and services.",
+    "example": "The staging environment runs on AWS."
   },
   "B2B": {
     "fullForm": "Business to Business",
@@ -28,6 +58,21 @@
     "fullForm": "Business to Consumer",
     "description": "A product, service, or process intended for individual consumers.",
     "example": "The B2C signup funnel needs fewer required fields."
+  },
+  "BFF": {
+    "fullForm": "Backend For Frontend",
+    "description": "A backend layer tailored to the needs of a specific frontend experience.",
+    "example": "The mobile app uses a BFF to simplify API responses."
+  },
+  "BI": {
+    "fullForm": "Business Intelligence",
+    "description": "Reporting and analysis used to understand business performance.",
+    "example": "The BI dashboard tracks weekly revenue."
+  },
+  "CAC": {
+    "fullForm": "Customer Acquisition Cost",
+    "description": "The cost of acquiring a new customer.",
+    "example": "CAC went down after the referral campaign launched."
   },
   "CD": {
     "fullForm": "Continuous Delivery",
@@ -54,45 +99,175 @@
     "description": "A text-based way to interact with a program from a terminal.",
     "example": "Use the CLI to install the FullForm Quick Action."
   },
+  "CODEOWNERS": {
+    "fullForm": "Code Owners",
+    "description": "A repository file that defines who should review changes to specific paths.",
+    "example": "Update CODEOWNERS so the platform team reviews infra changes."
+  },
+  "CORS": {
+    "fullForm": "Cross-Origin Resource Sharing",
+    "description": "A browser security mechanism that controls cross-origin web requests.",
+    "example": "The frontend failed because the API CORS policy blocked localhost."
+  },
+  "CPU": {
+    "fullForm": "Central Processing Unit",
+    "description": "The main processor that executes instructions in a computer or server.",
+    "example": "CPU usage spiked during the import job."
+  },
+  "CRM": {
+    "fullForm": "Customer Relationship Management",
+    "description": "A system or process for managing customer and sales interactions.",
+    "example": "Add the new lead to the CRM."
+  },
   "CRUD": {
     "fullForm": "Create, Read, Update, Delete",
     "description": "The four common operations for managing stored data.",
     "example": "The admin page needs CRUD support for glossary entries."
+  },
+  "CSRF": {
+    "fullForm": "Cross-Site Request Forgery",
+    "description": "A web attack where a user is tricked into submitting an unintended request.",
+    "example": "The form includes a CSRF token."
   },
   "CSS": {
     "fullForm": "Cascading Style Sheets",
     "description": "A language used to style web pages.",
     "example": "The button spacing is controlled in CSS."
   },
+  "CTR": {
+    "fullForm": "Click-Through Rate",
+    "description": "The percentage of users who click a link, ad, or call to action.",
+    "example": "The new subject line improved CTR."
+  },
+  "CVE": {
+    "fullForm": "Common Vulnerabilities and Exposures",
+    "description": "A public identifier for a known cybersecurity vulnerability.",
+    "example": "Upgrade the dependency because it has a high-severity CVE."
+  },
   "DB": {
     "fullForm": "Database",
     "description": "A system or store used to persist structured data.",
     "example": "The user profile is saved in the DB."
+  },
+  "DAU": {
+    "fullForm": "Daily Active Users",
+    "description": "The number of unique users active during a day.",
+    "example": "DAU dropped after the login regression."
+  },
+  "DDL": {
+    "fullForm": "Data Definition Language",
+    "description": "SQL statements used to define or change database schema.",
+    "example": "The migration uses DDL to add a new index."
+  },
+  "DML": {
+    "fullForm": "Data Manipulation Language",
+    "description": "SQL statements used to read or modify stored data.",
+    "example": "The cleanup script runs DML against archived records."
   },
   "DNS": {
     "fullForm": "Domain Name System",
     "description": "The internet system that maps domain names to network addresses.",
     "example": "Check DNS if the new domain is not resolving."
   },
+  "DORA": {
+    "fullForm": "DevOps Research and Assessment",
+    "description": "A set of delivery performance metrics often used by software teams.",
+    "example": "The team tracks DORA metrics for release health."
+  },
+  "DPA": {
+    "fullForm": "Data Processing Agreement",
+    "description": "A contract that defines how personal data is processed and protected.",
+    "example": "Legal needs the vendor DPA before we enable the integration."
+  },
+  "DPO": {
+    "fullForm": "Data Protection Officer",
+    "description": "A role responsible for advising on and monitoring data protection practices.",
+    "example": "Ask the DPO before exporting customer data."
+  },
+  "DRI": {
+    "fullForm": "Directly Responsible Individual",
+    "description": "The person accountable for driving a task or decision to completion.",
+    "example": "Who is the DRI for the launch checklist?"
+  },
+  "DX": {
+    "fullForm": "Developer Experience",
+    "description": "The experience developers have while using tools, APIs, or workflows.",
+    "example": "Better error messages would improve DX."
+  },
   "E2E": {
     "fullForm": "End to End",
     "description": "Testing or behavior that covers a complete user flow from start to finish.",
     "example": "The E2E test covers login, checkout, and receipt generation."
+  },
+  "EC2": {
+    "fullForm": "Elastic Compute Cloud",
+    "description": "An AWS service for running virtual servers.",
+    "example": "The worker runs on an EC2 instance."
   },
   "EOD": {
     "fullForm": "End of Day",
     "description": "Usually means before the end of the current workday.",
     "example": "Please send the deployment status by EOD."
   },
+  "ERD": {
+    "fullForm": "Entity Relationship Diagram",
+    "description": "A diagram that shows data entities and their relationships.",
+    "example": "Add an ERD to the data model proposal."
+  },
   "ETA": {
     "fullForm": "Estimated Time of Arrival",
     "description": "An estimate for when something will be ready or completed.",
     "example": "What is the ETA for the bug fix?"
   },
+  "ETL": {
+    "fullForm": "Extract, Transform, Load",
+    "description": "A data pipeline pattern for moving and preparing data between systems.",
+    "example": "The nightly ETL job populates the reporting tables."
+  },
+  "FTE": {
+    "fullForm": "Full-Time Employee",
+    "description": "A full-time worker or a staffing capacity measurement.",
+    "example": "The project needs one more FTE next quarter."
+  },
   "FYI": {
     "fullForm": "For Your Information",
     "description": "Used to share information that may not require action.",
     "example": "FYI, the release branch was cut this morning."
+  },
+  "GA": {
+    "fullForm": "General Availability",
+    "description": "A release stage where a product or feature is broadly available.",
+    "example": "The API will reach GA next month."
+  },
+  "GCP": {
+    "fullForm": "Google Cloud Platform",
+    "description": "A cloud computing platform commonly used to host infrastructure and services.",
+    "example": "The analytics pipeline runs on GCP."
+  },
+  "GDPR": {
+    "fullForm": "General Data Protection Regulation",
+    "description": "A European privacy regulation for personal data processing.",
+    "example": "Delete user data according to GDPR requirements."
+  },
+  "GFM": {
+    "fullForm": "GitHub Flavored Markdown",
+    "description": "GitHub's Markdown variant with extensions such as tables and task lists.",
+    "example": "The README uses GFM task lists."
+  },
+  "GTM": {
+    "fullForm": "Go To Market",
+    "description": "The plan for launching and selling a product or feature.",
+    "example": "Marketing is preparing the GTM plan."
+  },
+  "GPU": {
+    "fullForm": "Graphics Processing Unit",
+    "description": "A processor optimized for graphics and parallel computation workloads.",
+    "example": "The model training job needs a GPU instance."
+  },
+  "HLD": {
+    "fullForm": "High-Level Design",
+    "description": "A design document that explains system behavior and architecture at a broad level.",
+    "example": "Review the HLD before we start the detailed API design."
   },
   "HTML": {
     "fullForm": "HyperText Markup Language",
@@ -109,10 +284,40 @@
     "description": "HTTP over an encrypted connection.",
     "example": "Production traffic must use HTTPS."
   },
+  "I18N": {
+    "fullForm": "Internationalization",
+    "description": "Designing software so it can support multiple languages and regions.",
+    "example": "The settings page needs I18N support before launch."
+  },
+  "IAM": {
+    "fullForm": "Identity and Access Management",
+    "description": "Systems and policies that control identities and permissions.",
+    "example": "Use IAM roles instead of long-lived access keys."
+  },
+  "ICP": {
+    "fullForm": "Ideal Customer Profile",
+    "description": "A description of the customer type a product is best suited for.",
+    "example": "The sales team refined the ICP for enterprise accounts."
+  },
+  "IDE": {
+    "fullForm": "Integrated Development Environment",
+    "description": "A software application for writing, running, and debugging code.",
+    "example": "Open the project in your IDE."
+  },
+  "IDP": {
+    "fullForm": "Identity Provider",
+    "description": "A service that verifies user identity for authentication flows.",
+    "example": "Configure the company IDP before enabling SSO."
+  },
   "IP": {
     "fullForm": "Internet Protocol",
     "description": "A network protocol used to address and route data between devices.",
     "example": "Allowlist the office IP before testing the staging service."
+  },
+  "IOPS": {
+    "fullForm": "Input/Output Operations Per Second",
+    "description": "A storage performance metric for read and write operations.",
+    "example": "The database volume needs higher IOPS."
   },
   "IRL": {
     "fullForm": "In Real Life",
@@ -129,15 +334,65 @@
     "description": "A compact token format commonly used to pass identity or authorization claims.",
     "example": "The API validates the JWT before returning user data."
   },
+  "K8S": {
+    "fullForm": "Kubernetes",
+    "description": "An open-source platform for running and managing containerized applications.",
+    "example": "The service is deployed to the K8S cluster."
+  },
   "KPI": {
     "fullForm": "Key Performance Indicator",
     "description": "A metric used to measure progress toward a business or product goal.",
     "example": "Activation rate is the KPI for this onboarding project."
   },
+  "KYC": {
+    "fullForm": "Know Your Customer",
+    "description": "A process for verifying customer identity, often for compliance.",
+    "example": "The payments flow requires KYC before payouts."
+  },
+  "L10N": {
+    "fullForm": "Localization",
+    "description": "Adapting software or content for a specific language or region.",
+    "example": "L10N is needed for the German launch."
+  },
+  "LAN": {
+    "fullForm": "Local Area Network",
+    "description": "A network that connects devices in a limited physical area.",
+    "example": "The printer is only reachable on the office LAN."
+  },
+  "LDAP": {
+    "fullForm": "Lightweight Directory Access Protocol",
+    "description": "A protocol for accessing directory services such as users and groups.",
+    "example": "The admin portal syncs groups from LDAP."
+  },
   "LGTM": {
     "fullForm": "Looks Good To Me",
     "description": "Used in code review or chat to indicate approval.",
     "example": "LGTM after the test fix."
+  },
+  "LFS": {
+    "fullForm": "Large File Storage",
+    "description": "A Git extension used to manage large files outside normal Git objects.",
+    "example": "Move the design exports to Git LFS."
+  },
+  "LLD": {
+    "fullForm": "Low-Level Design",
+    "description": "A detailed technical design for implementation-level behavior.",
+    "example": "The LLD explains the retry state machine."
+  },
+  "LTV": {
+    "fullForm": "Lifetime Value",
+    "description": "The estimated value a customer brings over their relationship with a business.",
+    "example": "The growth team compares LTV against CAC."
+  },
+  "MAU": {
+    "fullForm": "Monthly Active Users",
+    "description": "The number of unique users active during a month.",
+    "example": "MAU increased after the mobile redesign."
+  },
+  "MDM": {
+    "fullForm": "Mobile Device Management",
+    "description": "Tools and policies used to manage company devices.",
+    "example": "Install the profile through MDM."
   },
   "MFA": {
     "fullForm": "Multi-Factor Authentication",
@@ -149,6 +404,26 @@
     "description": "A request to merge code changes, commonly used in GitLab workflows.",
     "example": "Please add screenshots to the MR description."
   },
+  "MRR": {
+    "fullForm": "Monthly Recurring Revenue",
+    "description": "Recurring revenue normalized to a monthly value.",
+    "example": "MRR grew after annual plans converted."
+  },
+  "MTTA": {
+    "fullForm": "Mean Time To Acknowledge",
+    "description": "The average time it takes to acknowledge an alert or incident.",
+    "example": "Reducing MTTA is part of the on-call improvement plan."
+  },
+  "MTTD": {
+    "fullForm": "Mean Time To Detect",
+    "description": "The average time it takes to detect a problem or incident.",
+    "example": "Better alerts should lower MTTD."
+  },
+  "MTTR": {
+    "fullForm": "Mean Time To Recovery",
+    "description": "The average time it takes to restore service after an incident.",
+    "example": "The postmortem includes MTTR for the outage."
+  },
   "MVP": {
     "fullForm": "Minimum Viable Product",
     "description": "The smallest useful version of a product that can validate an idea.",
@@ -158,6 +433,11 @@
     "fullForm": "Negative Acknowledgement",
     "description": "Used to reject or disagree with a request, proposal, or message.",
     "example": "NACK on releasing today until the rollback plan is ready."
+  },
+  "NPS": {
+    "fullForm": "Net Promoter Score",
+    "description": "A customer loyalty metric based on how likely users are to recommend a product.",
+    "example": "NPS improved after the support workflow changes."
   },
   "OKR": {
     "fullForm": "Objectives and Key Results",
@@ -169,10 +449,65 @@
     "description": "Used when someone is unavailable because they are away from work.",
     "example": "I am OOO on Friday."
   },
+  "OIDC": {
+    "fullForm": "OpenID Connect",
+    "description": "An identity layer on top of OAuth 2.0 used for sign-in.",
+    "example": "The app uses OIDC for SSO."
+  },
+  "OAUTH": {
+    "fullForm": "Open Authorization",
+    "description": "An authorization framework used to grant limited access without sharing passwords.",
+    "example": "The integration uses OAuth to connect to the user's calendar."
+  },
+  "OS": {
+    "fullForm": "Operating System",
+    "description": "System software that manages hardware and applications.",
+    "example": "The issue only reproduces on the latest OS."
+  },
   "ORM": {
     "fullForm": "Object-Relational Mapping",
     "description": "A technique or library that maps application objects to database tables.",
     "example": "The ORM migration adds a new users table."
+  },
+  "P0": {
+    "fullForm": "Priority Zero",
+    "description": "The highest priority level, usually reserved for urgent production issues.",
+    "example": "Treat the checkout outage as P0."
+  },
+  "P1": {
+    "fullForm": "Priority One",
+    "description": "A high priority issue that should be handled quickly.",
+    "example": "The login regression is a P1 bug."
+  },
+  "P95": {
+    "fullForm": "95th Percentile",
+    "description": "A metric value that 95 percent of observations are at or below.",
+    "example": "Track P95 latency for the search API."
+  },
+  "P99": {
+    "fullForm": "99th Percentile",
+    "description": "A metric value that 99 percent of observations are at or below.",
+    "example": "P99 latency spiked during the batch import."
+  },
+  "PCI": {
+    "fullForm": "Payment Card Industry",
+    "description": "Common shorthand for payment card security standards and compliance.",
+    "example": "Do not log card numbers because of PCI requirements."
+  },
+  "PII": {
+    "fullForm": "Personally Identifiable Information",
+    "description": "Information that can identify a specific person.",
+    "example": "Mask PII before sharing logs."
+  },
+  "PM": {
+    "fullForm": "Product Manager",
+    "description": "A person responsible for product direction, requirements, and tradeoffs.",
+    "example": "Ask the PM to confirm the launch scope."
+  },
+  "PMF": {
+    "fullForm": "Product-Market Fit",
+    "description": "A state where a product strongly meets market demand.",
+    "example": "Retention is improving, but PMF is not proven yet."
   },
   "POC": {
     "fullForm": "Proof of Concept",
@@ -199,10 +534,30 @@
     "description": "The process of checking that software meets quality expectations.",
     "example": "QA found a regression in the checkout flow."
   },
+  "RACI": {
+    "fullForm": "Responsible, Accountable, Consulted, Informed",
+    "description": "A responsibility matrix used to clarify ownership across roles.",
+    "example": "Add a RACI table to the migration plan."
+  },
+  "RAM": {
+    "fullForm": "Random Access Memory",
+    "description": "Fast working memory used by a computer while programs are running.",
+    "example": "The build machine needs more RAM."
+  },
+  "RBAC": {
+    "fullForm": "Role-Based Access Control",
+    "description": "A permissions model based on roles assigned to users or services.",
+    "example": "Use RBAC to restrict admin-only actions."
+  },
   "RCA": {
     "fullForm": "Root Cause Analysis",
     "description": "An investigation into the underlying cause of an incident or problem.",
     "example": "We will share the RCA after the incident review."
+  },
+  "RDBMS": {
+    "fullForm": "Relational Database Management System",
+    "description": "Database software that stores data in related tables.",
+    "example": "PostgreSQL is the RDBMS for this service."
   },
   "REST": {
     "fullForm": "Representational State Transfer",
@@ -214,15 +569,70 @@
     "description": "A document shared to gather feedback on a proposal or design.",
     "example": "Please review the RFC before Friday."
   },
+  "ROI": {
+    "fullForm": "Return on Investment",
+    "description": "A measure of value gained compared with the cost of an investment.",
+    "example": "The ROI is unclear unless we automate the manual review step."
+  },
   "RPC": {
     "fullForm": "Remote Procedure Call",
     "description": "A pattern where one program calls a procedure on another system.",
     "example": "The frontend talks to the backend through RPC calls."
   },
+  "RPO": {
+    "fullForm": "Recovery Point Objective",
+    "description": "The maximum acceptable amount of data loss after a failure.",
+    "example": "The database backup plan targets a one-hour RPO."
+  },
+  "RTO": {
+    "fullForm": "Recovery Time Objective",
+    "description": "The target time for restoring service after a failure.",
+    "example": "The service has a 30-minute RTO."
+  },
+  "S3": {
+    "fullForm": "Simple Storage Service",
+    "description": "An AWS object storage service.",
+    "example": "Upload the export file to S3."
+  },
+  "SAAS": {
+    "fullForm": "Software as a Service",
+    "description": "Software delivered as a hosted subscription service.",
+    "example": "The billing model is standard SaaS."
+  },
+  "SAML": {
+    "fullForm": "Security Assertion Markup Language",
+    "description": "A standard for exchanging authentication and authorization data.",
+    "example": "The enterprise customer requires SAML SSO."
+  },
+  "SCM": {
+    "fullForm": "Source Control Management",
+    "description": "Tools and practices for tracking source code changes.",
+    "example": "Git is our SCM system."
+  },
+  "SDLC": {
+    "fullForm": "Software Development Life Cycle",
+    "description": "The process of planning, building, testing, releasing, and maintaining software.",
+    "example": "Security review happens early in the SDLC."
+  },
   "SDK": {
     "fullForm": "Software Development Kit",
     "description": "A collection of tools, libraries, or documentation for building with a platform.",
     "example": "Install the iOS SDK before building the sample app."
+  },
+  "SEO": {
+    "fullForm": "Search Engine Optimization",
+    "description": "Improving content and pages so search engines can discover and rank them.",
+    "example": "The landing page needs SEO metadata."
+  },
+  "SEV": {
+    "fullForm": "Severity",
+    "description": "A level used to classify the impact of an incident or bug.",
+    "example": "The incident was downgraded from SEV1 to SEV2."
+  },
+  "SFTP": {
+    "fullForm": "Secure File Transfer Protocol",
+    "description": "A secure protocol for transferring files.",
+    "example": "The vendor sends reports through SFTP."
   },
   "SLA": {
     "fullForm": "Service Level Agreement",
@@ -239,10 +649,40 @@
     "description": "A target value for a service reliability or performance metric.",
     "example": "The API has a 99.9% availability SLO."
   },
+  "SOC2": {
+    "fullForm": "System and Organization Controls 2",
+    "description": "A security and compliance audit framework commonly requested by enterprise customers.",
+    "example": "The procurement review asks for our SOC2 report."
+  },
+  "SOW": {
+    "fullForm": "Statement of Work",
+    "description": "A document that defines project scope, deliverables, timing, and responsibilities.",
+    "example": "The implementation cannot start until the SOW is signed."
+  },
+  "SPA": {
+    "fullForm": "Single Page Application",
+    "description": "A web app that updates one page dynamically instead of loading new pages.",
+    "example": "The dashboard is implemented as a SPA."
+  },
   "SQL": {
     "fullForm": "Structured Query Language",
     "description": "A language used to query and manage relational databases.",
     "example": "Use SQL to inspect the failed import records."
+  },
+  "SRE": {
+    "fullForm": "Site Reliability Engineering",
+    "description": "An engineering discipline focused on reliable, scalable systems.",
+    "example": "Ask SRE to review the alert thresholds."
+  },
+  "SSH": {
+    "fullForm": "Secure Shell",
+    "description": "A protocol for securely connecting to remote systems.",
+    "example": "Use SSH to access the bastion host."
+  },
+  "SSL": {
+    "fullForm": "Secure Sockets Layer",
+    "description": "An older term often used casually for TLS certificates.",
+    "example": "Renew the SSL certificate before it expires."
   },
   "SSO": {
     "fullForm": "Single Sign-On",
@@ -253,6 +693,26 @@
     "fullForm": "To Be Decided",
     "description": "Used when a decision has not been made yet.",
     "example": "The launch date is TBD."
+  },
+  "TOS": {
+    "fullForm": "Terms of Service",
+    "description": "Rules and conditions that govern use of a product or service.",
+    "example": "Legal updated the TOS before the public launch."
+  },
+  "TCO": {
+    "fullForm": "Total Cost of Ownership",
+    "description": "The full cost of owning and operating a system or product.",
+    "example": "Compare TCO before choosing the database vendor."
+  },
+  "TCP": {
+    "fullForm": "Transmission Control Protocol",
+    "description": "A core internet protocol that provides reliable ordered data transfer.",
+    "example": "The service listens on a TCP port."
+  },
+  "TDD": {
+    "fullForm": "Test-Driven Development",
+    "description": "A development practice where tests are written before implementation code.",
+    "example": "Use TDD for the new parser behavior."
   },
   "TLS": {
     "fullForm": "Transport Layer Security",
@@ -269,10 +729,25 @@
     "description": "A short summary of a longer message or document.",
     "example": "Add a TLDR at the top of the design doc."
   },
+  "TTL": {
+    "fullForm": "Time To Live",
+    "description": "A duration that controls how long data, cache entries, or DNS records remain valid.",
+    "example": "Lower the DNS TTL before migration."
+  },
+  "UAT": {
+    "fullForm": "User Acceptance Testing",
+    "description": "Testing by users or stakeholders to confirm a feature meets expectations.",
+    "example": "UAT starts after QA signs off."
+  },
   "UI": {
     "fullForm": "User Interface",
     "description": "The part of a product that users see and interact with.",
     "example": "The UI should show a clear empty state."
+  },
+  "UDP": {
+    "fullForm": "User Datagram Protocol",
+    "description": "A network protocol that sends datagrams without connection setup.",
+    "example": "The metrics collector receives UDP packets."
   },
   "URI": {
     "fullForm": "Uniform Resource Identifier",
@@ -294,6 +769,21 @@
     "description": "A secure network connection used to access private systems.",
     "example": "Connect to the VPN before accessing staging logs."
   },
+  "VPC": {
+    "fullForm": "Virtual Private Cloud",
+    "description": "An isolated cloud network for running private resources.",
+    "example": "The database runs inside the VPC."
+  },
+  "WCAG": {
+    "fullForm": "Web Content Accessibility Guidelines",
+    "description": "Guidelines for making web content accessible.",
+    "example": "The new color palette should meet WCAG contrast requirements."
+  },
+  "WFH": {
+    "fullForm": "Work From Home",
+    "description": "Used when someone is working remotely from home.",
+    "example": "I am WFH today."
+  },
   "WIP": {
     "fullForm": "Work In Progress",
     "description": "Used when something is not finished yet.",
@@ -303,6 +793,11 @@
     "fullForm": "Extensible Markup Language",
     "description": "A markup language for structured documents and data.",
     "example": "The legacy integration still sends XML payloads."
+  },
+  "XSS": {
+    "fullForm": "Cross-Site Scripting",
+    "description": "A web security vulnerability where untrusted scripts run in a user's browser.",
+    "example": "Escape user input to prevent XSS."
   },
   "YAML": {
     "fullForm": "YAML Ain't Markup Language",
