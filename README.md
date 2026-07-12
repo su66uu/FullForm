@@ -8,8 +8,19 @@ FullForm is a lightweight macOS selected-text lookup utility. Select a short for
 
 It is intentionally small: a Swift command-line tool, a JSON glossary, and a macOS Quick Action.
 
+## Screenshots
+
+Run FullForm from the macOS Services menu after selecting an acronym:
+
+![Look Up FullForm Quick Action in the macOS Services menu](docs/images/quick-action-menu.png)
+
+FullForm shows the matching entry in a native macOS dialog:
+
+![FullForm lookup result dialog for IMHO](docs/images/lookup-dialog.png)
+
 ## Contents
 
+- [Screenshots](#screenshots)
 - [Install](#install)
 - [Features](#features)
 - [How It Works](#how-it-works)
