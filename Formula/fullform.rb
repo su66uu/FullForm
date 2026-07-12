@@ -18,6 +18,9 @@ class Fullform < Formula
     <<~EOS
       To install the macOS Quick Action and sample glossary, run:
         #{opt_bin}/fullform install-service
+
+      To remove the Quick Action while keeping your glossary, run:
+        #{opt_bin}/fullform uninstall-service
     EOS
   end
 

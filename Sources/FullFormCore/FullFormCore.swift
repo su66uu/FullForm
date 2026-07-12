@@ -13,6 +13,10 @@ public struct SupportInstallResult {
     public let installedGlossary: Bool
 }
 
+public struct SupportUninstallResult {
+    public let removedWorkflow: Bool
+}
+
 public func normalizeLookupTerm(_ term: String) -> String {
     let surroundingCharacters = CharacterSet.whitespacesAndNewlines.union(.punctuationCharacters)
     return term.trimmingCharacters(in: surroundingCharacters).uppercased()
@@ -77,4 +81,18 @@ public func installSupportFiles(
     }
 
     return SupportInstallResult(installedWorkflow: true, installedGlossary: installedGlossary)
+}
+
+public func uninstallSupportFiles(
+    servicesDirectoryURL: URL,
+    fileManager: FileManager = .default
+) throws -> SupportUninstallResult {
+    let workflowTargetURL = servicesDirectoryURL.appendingPathComponent("Look Up FullForm.workflow")
+
+    guard fileManager.fileExists(atPath: workflowTargetURL.path) else {
+        return SupportUninstallResult(removedWorkflow: false)
+    }
+
+    try fileManager.removeItem(at: workflowTargetURL)
+    return SupportUninstallResult(removedWorkflow: true)
 }

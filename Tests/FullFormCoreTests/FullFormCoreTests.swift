@@ -216,6 +216,36 @@ final class FullFormCoreTests: XCTestCase {
         XCTAssertEqual(try String(contentsOf: existingGlossaryURL), "custom glossary")
     }
 
+    func testUninstallSupportFilesRemovesWorkflowAndKeepsGlossary() throws {
+        let root = try makeTemporaryDirectory()
+        defer { try? FileManager.default.removeItem(at: root) }
+
+        let servicesURL = root.appendingPathComponent("Services")
+        let workflowURL = servicesURL.appendingPathComponent("Look Up FullForm.workflow")
+        let appSupportURL = root.appendingPathComponent("Application Support/FullForm")
+        let glossaryURL = appSupportURL.appendingPathComponent("fullform.json")
+
+        try FileManager.default.createDirectory(at: workflowURL, withIntermediateDirectories: true)
+        try "workflow".write(to: workflowURL.appendingPathComponent("document.wflow"), atomically: true, encoding: .utf8)
+        try FileManager.default.createDirectory(at: appSupportURL, withIntermediateDirectories: true)
+        try "custom glossary".write(to: glossaryURL, atomically: true, encoding: .utf8)
+
+        let result = try uninstallSupportFiles(servicesDirectoryURL: servicesURL)
+
+        XCTAssertTrue(result.removedWorkflow)
+        XCTAssertFalse(FileManager.default.fileExists(atPath: workflowURL.path))
+        XCTAssertEqual(try String(contentsOf: glossaryURL), "custom glossary")
+    }
+
+    func testUninstallSupportFilesReportsWhenWorkflowIsAlreadyMissing() throws {
+        let root = try makeTemporaryDirectory()
+        defer { try? FileManager.default.removeItem(at: root) }
+
+        let result = try uninstallSupportFiles(servicesDirectoryURL: root.appendingPathComponent("Services"))
+
+        XCTAssertFalse(result.removedWorkflow)
+    }
+
     private func makeTemporaryDirectory() throws -> URL {
         let url = FileManager.default.temporaryDirectory
             .appendingPathComponent("fullform-tests")

@@ -35,6 +35,14 @@ This builds FullForm from source, installs the CLI, then installs the macOS Quic
 
 After installation, select text in any macOS app and run **Look Up FullForm** from the Services / Quick Actions menu.
 
+To remove the Quick Action:
+
+```bash
+$(brew --prefix fullform)/bin/fullform uninstall-service
+```
+
+This removes the macOS Quick Action and leaves your glossary file unchanged.
+
 ## Features
 
 - **Selected-text lookup** through a macOS Quick Action.

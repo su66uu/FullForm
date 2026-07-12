@@ -13,6 +13,11 @@ struct Fullform {
             return
         }
 
+        if arguments.count == 1, arguments[0] == "uninstall-service" {
+            uninstallService()
+            return
+        }
+
         guard arguments.count == 2, arguments[0] == "lookup" else {
             printUsage()
             Foundation.exit(1)
@@ -132,6 +137,7 @@ func printUsage() {
         Usage:
           fullform lookup <term>
           fullform install-service
+          fullform uninstall-service
         """
     )
 }
@@ -151,15 +157,55 @@ func installService() {
         )
 
         print("Installed Look Up FullForm Quick Action.")
+        refreshServicesMenu()
         if result.installedGlossary {
             print("Installed sample glossary.")
         } else {
             print("Existing glossary found; left it unchanged.")
         }
     } catch {
-        print("Could not install FullForm support files: \(error)")
+        print("Could not install FullForm support files.")
+        printServiceCleanupHelp(error: error)
         Foundation.exit(1)
     }
+}
+
+func uninstallService() {
+    do {
+        let result = try uninstallSupportFiles(servicesDirectoryURL: defaultServicesDirectoryURL())
+        if result.removedWorkflow {
+            print("Removed Look Up FullForm Quick Action.")
+        } else {
+            print("Look Up FullForm Quick Action was not installed.")
+        }
+        print("Glossary left unchanged at \(defaultGlossaryPath()).")
+        refreshServicesMenu()
+    } catch {
+        print("Could not uninstall FullForm support files.")
+        printServiceCleanupHelp(error: error)
+        Foundation.exit(1)
+    }
+}
+
+func refreshServicesMenu() {
+    let process = Process()
+    process.executableURL = URL(fileURLWithPath: "/System/Library/CoreServices/pbs")
+    process.arguments = ["-flush"]
+
+    do {
+        try process.run()
+        process.waitUntilExit()
+    } catch {
+        print("Could not refresh macOS Services cache. You can run /System/Library/CoreServices/pbs -flush manually.")
+    }
+}
+
+func printServiceCleanupHelp(error: Error) {
+    print(error)
+    print("")
+    print("To clean up manually, run:")
+    print("  rm -rf \"\(defaultServicesDirectoryURL().appendingPathComponent("Look Up FullForm.workflow").path)\"")
+    print("  /System/Library/CoreServices/pbs -flush")
 }
 
 func findSupportFileSources(fileManager: FileManager = .default) -> SupportFileSources? {
