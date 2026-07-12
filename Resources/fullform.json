@@ -24,10 +24,25 @@
     "description": "A short document that records an important technical decision and its context.",
     "example": "Write an ADR for the database migration strategy."
   },
+  "AFAIK": {
+    "fullForm": "As Far As I Know",
+    "description": "Used when sharing information believed to be true, while leaving room for correction.",
+    "example": "AFAIK, the deploy is still scheduled for today."
+  },
+  "AFK": {
+    "fullForm": "Away From Keyboard",
+    "description": "Used to say someone is temporarily unavailable or away from their device.",
+    "example": "I will be AFK for 10 minutes."
+  },
   "AI": {
     "fullForm": "Artificial Intelligence",
     "description": "Software techniques that perform tasks commonly associated with human intelligence.",
     "example": "The team is evaluating AI-assisted support triage."
+  },
+  "AMA": {
+    "fullForm": "Ask Me Anything",
+    "description": "An open question session where people can ask about a topic.",
+    "example": "The founder is hosting an AMA after the launch."
   },
   "API": {
     "fullForm": "Application Programming Interface",
@@ -59,6 +74,11 @@
     "description": "A product, service, or process intended for individual consumers.",
     "example": "The B2C signup funnel needs fewer required fields."
   },
+  "BBL": {
+    "fullForm": "Be Back Later",
+    "description": "Used to say someone is leaving a conversation and will return later.",
+    "example": "BBL after lunch."
+  },
   "BFF": {
     "fullForm": "Backend For Frontend",
     "description": "A backend layer tailored to the needs of a specific frontend experience.",
@@ -68,6 +88,16 @@
     "fullForm": "Business Intelligence",
     "description": "Reporting and analysis used to understand business performance.",
     "example": "The BI dashboard tracks weekly revenue."
+  },
+  "BRB": {
+    "fullForm": "Be Right Back",
+    "description": "Used to say someone is stepping away briefly and will return soon.",
+    "example": "BRB, joining from my laptop."
+  },
+  "BTW": {
+    "fullForm": "By The Way",
+    "description": "Used to add related or side information to a conversation.",
+    "example": "BTW, the release notes are already updated."
   },
   "CAC": {
     "fullForm": "Customer Acquisition Cost",
@@ -159,6 +189,11 @@
     "description": "SQL statements used to define or change database schema.",
     "example": "The migration uses DDL to add a new index."
   },
+  "DM": {
+    "fullForm": "Direct Message",
+    "description": "A private message sent directly to one person or a small group.",
+    "example": "Send me the link by DM."
+  },
   "DML": {
     "fullForm": "Data Manipulation Language",
     "description": "SQL statements used to read or modify stored data.",
@@ -224,10 +259,20 @@
     "description": "A data pipeline pattern for moving and preparing data between systems.",
     "example": "The nightly ETL job populates the reporting tables."
   },
+  "FOMO": {
+    "fullForm": "Fear Of Missing Out",
+    "description": "Anxiety about missing an event, update, or opportunity others are part of.",
+    "example": "The beta invite created some FOMO in the community."
+  },
   "FTE": {
     "fullForm": "Full-Time Employee",
     "description": "A full-time worker or a staffing capacity measurement.",
     "example": "The project needs one more FTE next quarter."
+  },
+  "FWIW": {
+    "fullForm": "For What It's Worth",
+    "description": "Used before adding a thought, opinion, or context that may or may not be useful.",
+    "example": "FWIW, users asked for this in three interviews."
   },
   "FYI": {
     "fullForm": "For Your Information",
@@ -299,15 +344,40 @@
     "description": "A description of the customer type a product is best suited for.",
     "example": "The sales team refined the ICP for enterprise accounts."
   },
+  "ICYMI": {
+    "fullForm": "In Case You Missed It",
+    "description": "Used when repeating or highlighting information that may have been missed.",
+    "example": "ICYMI, the meeting moved to 3 PM."
+  },
   "IDE": {
     "fullForm": "Integrated Development Environment",
     "description": "A software application for writing, running, and debugging code.",
     "example": "Open the project in your IDE."
   },
+  "IDK": {
+    "fullForm": "I Don't Know",
+    "description": "Used to say the answer is not known.",
+    "example": "IDK why staging is slow yet."
+  },
   "IDP": {
     "fullForm": "Identity Provider",
     "description": "A service that verifies user identity for authentication flows.",
     "example": "Configure the company IDP before enabling SSO."
+  },
+  "IIRC": {
+    "fullForm": "If I Recall Correctly",
+    "description": "Used when relying on memory and acknowledging it may be imperfect.",
+    "example": "IIRC, we changed that endpoint last quarter."
+  },
+  "IMHO": {
+    "fullForm": "In My Humble Opinion",
+    "description": "Used before sharing a personal opinion, often to soften the tone.",
+    "example": "IMHO, we should keep the first version simple."
+  },
+  "IMO": {
+    "fullForm": "In My Opinion",
+    "description": "Used before sharing a personal opinion.",
+    "example": "IMO, the smaller scope is easier to ship."
   },
   "IP": {
     "fullForm": "Internet Protocol",
@@ -323,6 +393,11 @@
     "fullForm": "In Real Life",
     "description": "Used to distinguish offline or in-person context from online discussion.",
     "example": "Let's discuss this IRL."
+  },
+  "JK": {
+    "fullForm": "Just Kidding",
+    "description": "Used to clarify that something was meant as a joke.",
+    "example": "JK, I know the migration was harder than expected."
   },
   "JSON": {
     "fullForm": "JavaScript Object Notation",
@@ -369,10 +444,25 @@
     "description": "Used in code review or chat to indicate approval.",
     "example": "LGTM after the test fix."
   },
+  "LMAO": {
+    "fullForm": "Laughing My Ass Off",
+    "description": "Used to show strong amusement in informal conversation.",
+    "example": "LMAO, that bug report title is too accurate."
+  },
+  "LMK": {
+    "fullForm": "Let Me Know",
+    "description": "Used to ask someone to share an update or decision later.",
+    "example": "LMK when the build finishes."
+  },
   "LFS": {
     "fullForm": "Large File Storage",
     "description": "A Git extension used to manage large files outside normal Git objects.",
     "example": "Move the design exports to Git LFS."
+  },
+  "LOL": {
+    "fullForm": "Laughing Out Loud",
+    "description": "Used to show amusement in informal conversation.",
+    "example": "LOL, I found the typo in the config."
   },
   "LLD": {
     "fullForm": "Low-Level Design",
@@ -434,10 +524,25 @@
     "description": "Used to reject or disagree with a request, proposal, or message.",
     "example": "NACK on releasing today until the rollback plan is ready."
   },
+  "NGL": {
+    "fullForm": "Not Gonna Lie",
+    "description": "Used before a candid or direct opinion.",
+    "example": "NGL, the old onboarding flow was confusing."
+  },
+  "NP": {
+    "fullForm": "No Problem",
+    "description": "Used to acknowledge thanks or say a request is not an issue.",
+    "example": "NP, I can review it after lunch."
+  },
   "NPS": {
     "fullForm": "Net Promoter Score",
     "description": "A customer loyalty metric based on how likely users are to recommend a product.",
     "example": "NPS improved after the support workflow changes."
+  },
+  "NVM": {
+    "fullForm": "Never Mind",
+    "description": "Used when something should be ignored or is no longer needed.",
+    "example": "NVM, I found the setting."
   },
   "OKR": {
     "fullForm": "Objectives and Key Results",
@@ -454,6 +559,16 @@
     "description": "An identity layer on top of OAuth 2.0 used for sign-in.",
     "example": "The app uses OIDC for SSO."
   },
+  "OMG": {
+    "fullForm": "Oh My God",
+    "description": "Used to express surprise, excitement, or frustration.",
+    "example": "OMG, the flaky test finally passed."
+  },
+  "OMW": {
+    "fullForm": "On My Way",
+    "description": "Used to say someone is currently heading somewhere.",
+    "example": "OMW to the meeting room."
+  },
   "OAUTH": {
     "fullForm": "Open Authorization",
     "description": "An authorization framework used to grant limited access without sharing passwords.",
@@ -468,6 +583,11 @@
     "fullForm": "Object-Relational Mapping",
     "description": "A technique or library that maps application objects to database tables.",
     "example": "The ORM migration adds a new users table."
+  },
+  "OTOH": {
+    "fullForm": "On The Other Hand",
+    "description": "Used to introduce a contrasting point or tradeoff.",
+    "example": "OTOH, waiting a week gives QA more time."
   },
   "P0": {
     "fullForm": "Priority Zero",
@@ -589,6 +709,16 @@
     "description": "The target time for restoring service after a failure.",
     "example": "The service has a 30-minute RTO."
   },
+  "RN": {
+    "fullForm": "Right Now",
+    "description": "Used to mean at the present moment.",
+    "example": "I cannot join RN, but I can review later."
+  },
+  "ROFL": {
+    "fullForm": "Rolling On the Floor Laughing",
+    "description": "Used to show strong amusement in informal conversation.",
+    "example": "ROFL, that demo failure was perfectly timed."
+  },
   "S3": {
     "fullForm": "Simple Storage Service",
     "description": "An AWS object storage service.",
@@ -649,6 +779,11 @@
     "description": "A target value for a service reliability or performance metric.",
     "example": "The API has a 99.9% availability SLO."
   },
+  "SMH": {
+    "fullForm": "Shaking My Head",
+    "description": "Used to show disbelief, frustration, or disappointment.",
+    "example": "SMH, the same config drift happened again."
+  },
   "SOC2": {
     "fullForm": "System and Organization Controls 2",
     "description": "A security and compliance audit framework commonly requested by enterprise customers.",
@@ -694,10 +829,10 @@
     "description": "Used when a decision has not been made yet.",
     "example": "The launch date is TBD."
   },
-  "TOS": {
-    "fullForm": "Terms of Service",
-    "description": "Rules and conditions that govern use of a product or service.",
-    "example": "Legal updated the TOS before the public launch."
+  "TBH": {
+    "fullForm": "To Be Honest",
+    "description": "Used before giving a candid opinion or admission.",
+    "example": "TBH, the shorter flow is easier to understand."
   },
   "TCO": {
     "fullForm": "Total Cost of Ownership",
@@ -714,6 +849,16 @@
     "description": "A development practice where tests are written before implementation code.",
     "example": "Use TDD for the new parser behavior."
   },
+  "TIA": {
+    "fullForm": "Thanks In Advance",
+    "description": "Used to thank someone before they complete a requested action.",
+    "example": "Please review the migration notes, TIA."
+  },
+  "TIL": {
+    "fullForm": "Today I Learned",
+    "description": "Used when sharing a newly learned fact or insight.",
+    "example": "TIL macOS Services need the cache refreshed."
+  },
   "TLS": {
     "fullForm": "Transport Layer Security",
     "description": "A protocol used to encrypt network communication.",
@@ -729,10 +874,25 @@
     "description": "A short summary of a longer message or document.",
     "example": "Add a TLDR at the top of the design doc."
   },
+  "TOS": {
+    "fullForm": "Terms of Service",
+    "description": "Rules and conditions that govern use of a product or service.",
+    "example": "Legal updated the TOS before the public launch."
+  },
   "TTL": {
     "fullForm": "Time To Live",
     "description": "A duration that controls how long data, cache entries, or DNS records remain valid.",
     "example": "Lower the DNS TTL before migration."
+  },
+  "TTYL": {
+    "fullForm": "Talk To You Later",
+    "description": "Used to end a conversation while implying another conversation later.",
+    "example": "I need to join another call, TTYL."
+  },
+  "TY": {
+    "fullForm": "Thank You",
+    "description": "A short way to express thanks.",
+    "example": "TY for checking the logs."
   },
   "UAT": {
     "fullForm": "User Acceptance Testing",
@@ -779,6 +939,11 @@
     "description": "Guidelines for making web content accessible.",
     "example": "The new color palette should meet WCAG contrast requirements."
   },
+  "WDYT": {
+    "fullForm": "What Do You Think",
+    "description": "Used to ask for someone's opinion or feedback.",
+    "example": "WDYT about moving this to next sprint?"
+  },
   "WFH": {
     "fullForm": "Work From Home",
     "description": "Used when someone is working remotely from home.",
@@ -803,5 +968,15 @@
     "fullForm": "YAML Ain't Markup Language",
     "description": "A human-readable data serialization format often used for configuration.",
     "example": "The CI workflow is configured in YAML."
+  },
+  "YMMV": {
+    "fullForm": "Your Mileage May Vary",
+    "description": "Used to say results or opinions may differ depending on the person or situation.",
+    "example": "YMMV, but the new shortcut feels faster to me."
+  },
+  "YOLO": {
+    "fullForm": "You Only Live Once",
+    "description": "Used to justify taking a risk or doing something spontaneous.",
+    "example": "YOLO is not a deployment strategy."
   }
 }
