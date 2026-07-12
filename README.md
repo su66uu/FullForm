@@ -16,7 +16,7 @@ Run FullForm from the macOS Services menu after selecting an acronym:
 
 FullForm shows the matching entry in a native macOS dialog:
 
-![FullForm lookup result dialog for IMHO](docs/images/lookup-dialog.png)
+![FullForm lookup result dialog for IMHO](docs/images/lookup-dialog-success.png)
 
 ## Contents
 
