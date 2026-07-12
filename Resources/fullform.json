@@ -1,7 +1,312 @@
 {
+  "2FA": {
+    "fullForm": "Two-Factor Authentication",
+    "description": "A sign-in method that requires two forms of verification.",
+    "example": "Enable 2FA before joining the production GitHub organization."
+  },
+  "ACK": {
+    "fullForm": "Acknowledged",
+    "description": "Used to confirm that a message, request, or update has been received.",
+    "example": "ACK, I will review the PR after standup."
+  },
+  "API": {
+    "fullForm": "Application Programming Interface",
+    "description": "A contract that lets software systems communicate with each other.",
+    "example": "The mobile app calls the payments API during checkout."
+  },
+  "ASAP": {
+    "fullForm": "As Soon As Possible",
+    "description": "Used when something should be handled quickly.",
+    "example": "Please share the incident timeline ASAP."
+  },
+  "B2B": {
+    "fullForm": "Business to Business",
+    "description": "A product, service, or process intended for business customers.",
+    "example": "This onboarding flow is for our B2B customers."
+  },
+  "B2C": {
+    "fullForm": "Business to Consumer",
+    "description": "A product, service, or process intended for individual consumers.",
+    "example": "The B2C signup funnel needs fewer required fields."
+  },
+  "CD": {
+    "fullForm": "Continuous Delivery",
+    "description": "A software delivery practice where changes are kept ready to release.",
+    "example": "The CD pipeline packages every successful main branch build."
+  },
+  "CDN": {
+    "fullForm": "Content Delivery Network",
+    "description": "A distributed network that serves content from locations closer to users.",
+    "example": "Static assets are served through the CDN."
+  },
+  "CI": {
+    "fullForm": "Continuous Integration",
+    "description": "A development practice where automated builds and tests run after code changes.",
+    "example": "CI failed because one unit test is flaky."
+  },
+  "CI/CD": {
+    "fullForm": "Continuous Integration and Continuous Delivery",
+    "description": "A combined workflow for automatically testing, building, and preparing software for release.",
+    "example": "The CI/CD workflow runs tests before deployment."
+  },
+  "CLI": {
+    "fullForm": "Command Line Interface",
+    "description": "A text-based way to interact with a program from a terminal.",
+    "example": "Use the CLI to install the FullForm Quick Action."
+  },
+  "CRUD": {
+    "fullForm": "Create, Read, Update, Delete",
+    "description": "The four common operations for managing stored data.",
+    "example": "The admin page needs CRUD support for glossary entries."
+  },
+  "CSS": {
+    "fullForm": "Cascading Style Sheets",
+    "description": "A language used to style web pages.",
+    "example": "The button spacing is controlled in CSS."
+  },
+  "DB": {
+    "fullForm": "Database",
+    "description": "A system or store used to persist structured data.",
+    "example": "The user profile is saved in the DB."
+  },
+  "DNS": {
+    "fullForm": "Domain Name System",
+    "description": "The internet system that maps domain names to network addresses.",
+    "example": "Check DNS if the new domain is not resolving."
+  },
+  "E2E": {
+    "fullForm": "End to End",
+    "description": "Testing or behavior that covers a complete user flow from start to finish.",
+    "example": "The E2E test covers login, checkout, and receipt generation."
+  },
+  "EOD": {
+    "fullForm": "End of Day",
+    "description": "Usually means before the end of the current workday.",
+    "example": "Please send the deployment status by EOD."
+  },
+  "ETA": {
+    "fullForm": "Estimated Time of Arrival",
+    "description": "An estimate for when something will be ready or completed.",
+    "example": "What is the ETA for the bug fix?"
+  },
+  "FYI": {
+    "fullForm": "For Your Information",
+    "description": "Used to share information that may not require action.",
+    "example": "FYI, the release branch was cut this morning."
+  },
+  "HTML": {
+    "fullForm": "HyperText Markup Language",
+    "description": "The markup language used to structure web pages.",
+    "example": "The email template uses basic HTML."
+  },
+  "HTTP": {
+    "fullForm": "Hypertext Transfer Protocol",
+    "description": "A protocol used for transferring resources on the web.",
+    "example": "The API returned an HTTP 404 response."
+  },
+  "HTTPS": {
+    "fullForm": "Hypertext Transfer Protocol Secure",
+    "description": "HTTP over an encrypted connection.",
+    "example": "Production traffic must use HTTPS."
+  },
+  "IP": {
+    "fullForm": "Internet Protocol",
+    "description": "A network protocol used to address and route data between devices.",
+    "example": "Allowlist the office IP before testing the staging service."
+  },
   "IRL": {
     "fullForm": "In Real Life",
     "description": "Used to distinguish offline or in-person context from online discussion.",
     "example": "Let's discuss this IRL."
+  },
+  "JSON": {
+    "fullForm": "JavaScript Object Notation",
+    "description": "A lightweight text format for structured data exchange.",
+    "example": "The glossary is stored as JSON."
+  },
+  "JWT": {
+    "fullForm": "JSON Web Token",
+    "description": "A compact token format commonly used to pass identity or authorization claims.",
+    "example": "The API validates the JWT before returning user data."
+  },
+  "KPI": {
+    "fullForm": "Key Performance Indicator",
+    "description": "A metric used to measure progress toward a business or product goal.",
+    "example": "Activation rate is the KPI for this onboarding project."
+  },
+  "LGTM": {
+    "fullForm": "Looks Good To Me",
+    "description": "Used in code review or chat to indicate approval.",
+    "example": "LGTM after the test fix."
+  },
+  "MFA": {
+    "fullForm": "Multi-Factor Authentication",
+    "description": "Authentication that requires multiple verification factors.",
+    "example": "MFA is required for admin accounts."
+  },
+  "MR": {
+    "fullForm": "Merge Request",
+    "description": "A request to merge code changes, commonly used in GitLab workflows.",
+    "example": "Please add screenshots to the MR description."
+  },
+  "MVP": {
+    "fullForm": "Minimum Viable Product",
+    "description": "The smallest useful version of a product that can validate an idea.",
+    "example": "The MVP supports exact acronym lookup only."
+  },
+  "NACK": {
+    "fullForm": "Negative Acknowledgement",
+    "description": "Used to reject or disagree with a request, proposal, or message.",
+    "example": "NACK on releasing today until the rollback plan is ready."
+  },
+  "OKR": {
+    "fullForm": "Objectives and Key Results",
+    "description": "A goal-setting framework with qualitative objectives and measurable results.",
+    "example": "The team OKR is to reduce onboarding time."
+  },
+  "OOO": {
+    "fullForm": "Out of Office",
+    "description": "Used when someone is unavailable because they are away from work.",
+    "example": "I am OOO on Friday."
+  },
+  "ORM": {
+    "fullForm": "Object-Relational Mapping",
+    "description": "A technique or library that maps application objects to database tables.",
+    "example": "The ORM migration adds a new users table."
+  },
+  "POC": {
+    "fullForm": "Proof of Concept",
+    "description": "A small implementation used to prove an idea is technically possible.",
+    "example": "Build a POC before committing to the integration."
+  },
+  "PR": {
+    "fullForm": "Pull Request",
+    "description": "A request to review and merge code changes into another branch.",
+    "example": "Open a PR once the tests pass."
+  },
+  "PRD": {
+    "fullForm": "Product Requirements Document",
+    "description": "A document that describes product goals, requirements, and expected behavior.",
+    "example": "The PRD defines the first version of the search experience."
+  },
+  "PTO": {
+    "fullForm": "Paid Time Off",
+    "description": "Approved paid leave from work.",
+    "example": "I am taking PTO next Monday."
+  },
+  "QA": {
+    "fullForm": "Quality Assurance",
+    "description": "The process of checking that software meets quality expectations.",
+    "example": "QA found a regression in the checkout flow."
+  },
+  "RCA": {
+    "fullForm": "Root Cause Analysis",
+    "description": "An investigation into the underlying cause of an incident or problem.",
+    "example": "We will share the RCA after the incident review."
+  },
+  "REST": {
+    "fullForm": "Representational State Transfer",
+    "description": "An architectural style often used for web APIs.",
+    "example": "The service exposes a REST API for account lookup."
+  },
+  "RFC": {
+    "fullForm": "Request For Comments",
+    "description": "A document shared to gather feedback on a proposal or design.",
+    "example": "Please review the RFC before Friday."
+  },
+  "RPC": {
+    "fullForm": "Remote Procedure Call",
+    "description": "A pattern where one program calls a procedure on another system.",
+    "example": "The frontend talks to the backend through RPC calls."
+  },
+  "SDK": {
+    "fullForm": "Software Development Kit",
+    "description": "A collection of tools, libraries, or documentation for building with a platform.",
+    "example": "Install the iOS SDK before building the sample app."
+  },
+  "SLA": {
+    "fullForm": "Service Level Agreement",
+    "description": "A formal commitment about expected service performance or support.",
+    "example": "The enterprise SLA requires a response within one hour."
+  },
+  "SLI": {
+    "fullForm": "Service Level Indicator",
+    "description": "A metric used to measure service reliability or performance.",
+    "example": "Request latency is one of our SLIs."
+  },
+  "SLO": {
+    "fullForm": "Service Level Objective",
+    "description": "A target value for a service reliability or performance metric.",
+    "example": "The API has a 99.9% availability SLO."
+  },
+  "SQL": {
+    "fullForm": "Structured Query Language",
+    "description": "A language used to query and manage relational databases.",
+    "example": "Use SQL to inspect the failed import records."
+  },
+  "SSO": {
+    "fullForm": "Single Sign-On",
+    "description": "An authentication setup where one login gives access to multiple systems.",
+    "example": "Employees sign in through SSO."
+  },
+  "TBD": {
+    "fullForm": "To Be Decided",
+    "description": "Used when a decision has not been made yet.",
+    "example": "The launch date is TBD."
+  },
+  "TLS": {
+    "fullForm": "Transport Layer Security",
+    "description": "A protocol used to encrypt network communication.",
+    "example": "The service requires TLS for all external traffic."
+  },
+  "TL;DR": {
+    "fullForm": "Too Long; Didn't Read",
+    "description": "A short summary of a longer message or document.",
+    "example": "Add a TL;DR at the top of the design doc."
+  },
+  "TLDR": {
+    "fullForm": "Too Long; Didn't Read",
+    "description": "A short summary of a longer message or document.",
+    "example": "Add a TLDR at the top of the design doc."
+  },
+  "UI": {
+    "fullForm": "User Interface",
+    "description": "The part of a product that users see and interact with.",
+    "example": "The UI should show a clear empty state."
+  },
+  "URI": {
+    "fullForm": "Uniform Resource Identifier",
+    "description": "A string that identifies a resource by name, location, or both.",
+    "example": "The callback URI must match the OAuth app settings."
+  },
+  "URL": {
+    "fullForm": "Uniform Resource Locator",
+    "description": "A web address that identifies where a resource is located.",
+    "example": "Share the staging URL in the release channel."
+  },
+  "UX": {
+    "fullForm": "User Experience",
+    "description": "The overall experience a person has while using a product.",
+    "example": "The UX should make the next action obvious."
+  },
+  "VPN": {
+    "fullForm": "Virtual Private Network",
+    "description": "A secure network connection used to access private systems.",
+    "example": "Connect to the VPN before accessing staging logs."
+  },
+  "WIP": {
+    "fullForm": "Work In Progress",
+    "description": "Used when something is not finished yet.",
+    "example": "Mark the PR as WIP until the migration is ready."
+  },
+  "XML": {
+    "fullForm": "Extensible Markup Language",
+    "description": "A markup language for structured documents and data.",
+    "example": "The legacy integration still sends XML payloads."
+  },
+  "YAML": {
+    "fullForm": "YAML Ain't Markup Language",
+    "description": "A human-readable data serialization format often used for configuration.",
+    "example": "The CI workflow is configured in YAML."
   }
 }
