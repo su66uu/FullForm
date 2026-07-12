@@ -6,7 +6,7 @@
 
 FullForm is a lightweight macOS selected-text lookup utility. Select a short form or internal term in Slack, TextEdit, or another macOS app, run the **Look Up FullForm** Quick Action, and see the locally stored full form in a dialog.
 
-It is intentionally small: a Swift command-line tool, a JSON glossary, a macOS Quick Action, and a `.pkg` build path.
+It is intentionally small: a Swift command-line tool, a JSON glossary, and a macOS Quick Action.
 
 ## Contents
 
@@ -17,7 +17,6 @@ It is intentionally small: a Swift command-line tool, a JSON glossary, a macOS Q
 - [Build and Test](#build-and-test)
 - [Local Manual Install](#local-manual-install)
 - [Glossary Format](#glossary-format)
-- [Build the Package](#build-the-package)
 - [Verification Checklist](#verification-checklist)
 
 ## Install
@@ -49,8 +48,7 @@ This removes the macOS Quick Action and leaves your glossary file unchanged.
 - **Local glossary** stored as JSON under the user's Application Support directory.
 - **Exact normalized matching** for predictable behavior.
 - **macOS dialog output** using `osascript`, with stdout fallback if dialogs cannot be shown.
-- **Package build scripts** for staging and creating a `.pkg`.
-- **Overwrite-safe sample glossary install**: the package postinstall script only copies the sample glossary if the user does not already have one.
+- **Overwrite-safe setup**: `install-service` only copies the sample glossary if the user does not already have one.
 
 ## How It Works
 
@@ -83,7 +81,6 @@ All lookup behavior lives in the Swift code and is covered by unit tests.
 - macOS
 - Xcode or Swift toolchain with Swift Package Manager
 - Automator / Quick Actions support
-- `pkgbuild` for package creation
 
 Check the Swift toolchain:
 
@@ -196,60 +193,17 @@ Examples:
 > [!IMPORTANT]
 > FullForm does not scan inside sentences. If you select `Let's discuss IRL`, it looks for the full key `LET'S DISCUSS IRL`, not `IRL`.
 
-## Build the Package
-
-Stage package inputs:
-
-```bash
-Scripts/stage-package.sh
-```
-
-Build the `.pkg`:
-
-```bash
-Scripts/build-package.sh
-```
-
-The package is written to:
-
-```text
-.build/packages/FullForm.pkg
-```
-
-The package payload installs:
-
-```text
-/usr/local/bin/fullform
-/Library/Services/Look Up FullForm.workflow
-```
-
-After installation, select text in any macOS app and run **Look Up FullForm** from the Services / Quick Actions menu.
-
-The postinstall script installs the sample glossary only when this file is missing:
-
-```text
-~/Library/Application Support/FullForm/fullform.json
-```
-
-> [!WARNING]
-> The package is currently unsigned. On another machine, macOS may block installation until the user allows it in **System Settings -> Privacy & Security**. Signing and notarization are not implemented yet.
-
-> [!NOTE]
-> In some sandboxed development environments, `pkgbuild` may include `._*` AppleDouble metadata entries because of macOS extended attributes. Validate release packages from a normal Terminal session or a clean machine before distribution.
-
 ## Verification Checklist
 
 Run these before handing off a build:
 
 ```bash
 swift test
-Scripts/stage-package.sh
-Scripts/build-package.sh
 ```
 
 Manual checks:
 
-- `/usr/local/bin/fullform lookup IRL` opens a found-result dialog.
-- `/usr/local/bin/fullform lookup XYZ` opens a not-found dialog.
+- `fullform lookup IRL` opens a found-result dialog.
+- `fullform lookup XYZ` opens a not-found dialog.
 - **Look Up FullForm** works from selected text in TextEdit.
-- Reinstalling does not overwrite an existing `~/Library/Application Support/FullForm/fullform.json`.
+- Running `install-service` again does not overwrite an existing `~/Library/Application Support/FullForm/fullform.json`.
