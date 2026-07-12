@@ -77,7 +77,7 @@ func makeDialogScript(message: String) -> String {
         .replacingOccurrences(of: "\\", with: "\\\\")
         .replacingOccurrences(of: "\"", with: "\\\"")
 
-    return "display dialog \"\(escapedMessage)\" buttons {\"OK\"} default button \"OK\""
+    return "display dialog \"\(escapedMessage)\" with title \"FullForm\" buttons {\"OK\"} default button \"OK\""
 }
 
 func showDialog(message: String) throws {
